@@ -34,37 +34,13 @@ public class BonusServiceTest {
         assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
-    void shouldCalculateForUnregisteredAndUnderLimit() {
-        BonusService service = new BonusService();
 
-        long amount = 1000_60;
-        boolean registered = false;
-        long expected = 10;
-
-        long actual = service.calculate(amount, registered);
-
-        assertEquals(expected, actual);
-    }
-
-    @org.junit.jupiter.api.Test
-    void shouldCalculateForUnregisteredAndOverLimit() {
-        BonusService service = new BonusService();
-
-        long amount = 1_000_000_60;
-        boolean registered = false;
-        long expected = 500;
-
-        long actual = service.calculate(amount, registered);
-
-        assertEquals(expected, actual);
-    }
 
     @org.junit.jupiter.api.Test
     void shouldCalculateForRegisteredAndZeroAmount() {
         BonusService service = new BonusService();
 
-        long amount = 33_33;
+        long amount = 33;
         boolean registered = true;
         long expected = 0;
 
@@ -77,7 +53,7 @@ public class BonusServiceTest {
     void shouldCalculateForUnregisteredAndZeroAmount() {
         BonusService service = new BonusService();
 
-        long amount = 99_99;
+        long amount = 99;
         boolean registered = false;
         long expected = 0;
 
@@ -90,7 +66,7 @@ public class BonusServiceTest {
     void shouldCalculateForRegisteredAndNearLimit() {
         BonusService service = new BonusService();
 
-        long amount = 16_666_66;
+        long amount = 16_666;
         boolean registered = true;
         long expected = 499;
 
@@ -103,7 +79,7 @@ public class BonusServiceTest {
     void shouldCalculateForUnregisteredAndNearLimit() {
         BonusService service = new BonusService();
 
-        long amount = 49_999_99;
+        long amount = 49_999;
         boolean registered = false;
         long expected = 499;
 
@@ -112,3 +88,4 @@ public class BonusServiceTest {
         assertEquals(expected, actual);
     }
 }
+
